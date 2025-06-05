@@ -63,12 +63,12 @@ st.markdown("___\n或手动选择：")
 all_provinces = sorted(admin_df['province'].unique().tolist())
 province_sel = st.selectbox("省份", all_provinces,
                             index=all_provinces.index(province) if province in all_provinces else 0)
-cities = sorted(admin_df[admin_df['province'] == province_sel]['city'].unique().tolist() + ['全市'])
+cities = sorted(admin_df[admin_df['province'] == province_sel]['city'].unique().tolist() + ['全省'])
 city_sel = st.selectbox("城市", cities, index=cities.index(city) if city in cities else 0)
 
 counties = sorted(
     admin_df[(admin_df['province'] == province_sel) & (admin_df['city'] == city_sel)]['county'].unique().tolist() + [
-        '全县'])
+        '全市'])
 county_sel = st.selectbox("县/区", counties, index=counties.index(county) if county in counties else 0)
 
 # 补贴字段
